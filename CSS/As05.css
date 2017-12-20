@@ -1,0 +1,33 @@
+#id{
+    height:800px;
+    width:1200px;
+}
+.cardBack{
+    background-image:url("../images/background.jpg");
+}
+.shark{
+    height:200px;
+    width:150px;
+    margin:20px;
+    display:inline-block;
+    background-size:cover;
+    background-position:center;
+}
+.shark1{
+    background-image:url("../images/shark1.jpg");
+}
+.shark2{
+    background-image:url("../images/shark2.png");
+}
+.shark3{
+    background-image:url("../images/shark3.jpeg");
+}
+.shark4{
+    background-image:url("../images/shark4.jpg");
+}
+.shark5{
+    background-image:url("../images/shark5.jpg");
+}
+.shark6{
+    background-image:url("../images/shark6.jpg");
+}
