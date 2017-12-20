@@ -1,5 +1,9 @@
+var gamePlay=function(){
+    var display=event.target.value;
+    event.target.classList.toggle("cardBack");
+    event.target.classList.toggle(display);
+}
 var shuffleDeck=function(array){
-    console.log("shuffling");
     var n=array.length;
     while(n){
         var i=Math.floor(Math.random()*n--);
@@ -12,11 +16,11 @@ var shuffleDeck=function(array){
 var setUp=function(){
     for(var i=0;i<2;i++){
         shuffleDeck(cardBank);
-        console.log("round");
         for(var j=0;j<cardBank.length;j++){
             var card=document.createElement('div');            
-            card.className="cardBack shark";
+            card.className="cardBack card";
             card.value=cardBank[j];
+            card.addEventListener("click",gamePlay);
             document.getElementById("gameboard").appendChild(card);    
         }
     }
@@ -32,7 +36,3 @@ game.id="gameboard";
 document.body.appendChild(game);
 
 setUp();
-
-
-
-
