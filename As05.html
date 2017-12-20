@@ -21,7 +21,22 @@
     <link rel="stylesheet" type="text/css" href="./CSS/As05.css">    
   </head>
   <body>
-    <div class="modal" tabindex="-1" role="dialog" id="myModal" style="display:none;">
+    <div class="modal" tabindex="-1" role="dialog" id="rules" style="display:none;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Game Play</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Try to find the matching cards!<br/><br/>Select two cards. If they match, congratulations! You're one step closer to finishing the game. If they don't, the cards will flip back over and you can select two more.<br/>Hint: Try to remember the cards you've already flipped over to win the game faster! Good luck!</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="close" type="button" class="btn" data-dismiss="modal">Dismiss</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="winner" style="display:none;">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

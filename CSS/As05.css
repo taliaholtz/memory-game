@@ -1,10 +1,33 @@
-#id{
-    height:800px;
-    width:1200px;
+#nav{
+    display:inline-block;
+    position:relative;
+    left:50%;
+    margin:20px auto;
+    margin-left:-135px;    
 }
-.cardBack{
-    background-image:url("../images/background.jpg");
+#nav a{
+    cursor:pointer;    
+    margin:15px;
+    text-align:center;
+    text-decoration:none;
+    font-family:Arial;
+    font-size:26px;
+    color:crimson
 }
+#nav a:active{
+    color:blue;
+}
+hr{
+    margin:0;
+}
+#gameboard{
+    height:700px;
+    width:800px;
+    position:absolute;
+    left:50%;
+    margin-left:-400px;
+}
+
 .card{
     height:200px;
     width:150px;
@@ -30,4 +53,7 @@
 }
 .shark6{
     background-image:url("../images/shark6.jpg");
+}
+.cardBack{
+    background-image:url("../images/background.jpg");
 }
