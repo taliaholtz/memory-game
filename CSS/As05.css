@@ -22,7 +22,7 @@ hr{
     margin:0;
 }
 #gameboard{
-    height:650;
+    height:660;
     width:1100px;
     position:relative;
     margin:auto;
@@ -60,3 +60,31 @@ hr{
 .matched{
     border:5px solid green;
 }
+   
+@media only screen and (max-width: 800px){
+    #nav{
+        left:50%;
+        margin-left:-130px;
+    }
+    #gameboard{
+        height:725px;
+        width:725px;        
+    }
+    .card{
+        height:160px;
+        width:225px;
+    }
+}
+@media only screen and (max-width: 450px){
+    #nav a{
+        font-size:22px;
+    }
+    #gameboard{
+        height:1275;                
+        width:550px;
+    }
+    .card{
+        height:140px;
+        width:200px;
+    }
+}       

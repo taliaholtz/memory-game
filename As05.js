@@ -81,7 +81,7 @@ var setUp=function(){
             var card=document.createElement('div');            
             card.className=cardBank[j]+" cardBack card";
             card.addEventListener("click",gamePlay);
-            document.getElementById("gameboard").appendChild(card);    
+            board.appendChild(card);    
         }
     }
 }
