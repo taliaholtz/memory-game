@@ -1,3 +1,4 @@
+//Modal functions
 var showRules=function(){
     document.getElementById("rules").style.display="block";
     document.getElementById("close").addEventListener("click",closeModal);
@@ -11,6 +12,13 @@ var closeModal=function(){
 var closeWindow=function(){
     window.close();
 }
+var endGame=function(){
+    document.getElementById("winner").style.display="block";
+    document.getElementById("exit").addEventListener("click",closeWindow);
+    document.getElementById("playAgain").addEventListener("click",setUp);
+    document.getElementById("playAgain").addEventListener("click",closeModal);    
+}
+//Game play functions
 var resumePlay=function(){
     var flipped=document.getElementsByClassName("flipped");
     for(var i=0;i<flipped.length;i++){
@@ -51,6 +59,7 @@ var gamePlay=function(){
         }
     }
 }
+//New game functions
 var shuffleDeck=function(array){
     var n=array.length;
     while(n){
@@ -76,13 +85,8 @@ var setUp=function(){
         }
     }
 }
-var endGame=function(){
-    document.getElementById("winner").style.display="block";
-    document.getElementById("exit").addEventListener("click",closeWindow);
-    document.getElementById("playAgain").addEventListener("click",setUp);
-    document.getElementById("playAgain").addEventListener("click",closeModal);    
-}
 
+//HTML
 var cardBank=["shark1","shark2","shark3","shark4","shark5","shark6"];
 
 var header=document.createElement('div');
