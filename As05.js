@@ -19,7 +19,7 @@ var endGame=function(){
     document.getElementById("playAgain").addEventListener("click",closeModal);    
 }
 //Game play functions
-var resumePlay=function(){
+var resumePlay=function(){ 
     var flipped=document.getElementsByClassName("flipped");
     for(var i=0;i<flipped.length;i++){
         flipped[i].classList.add("cardBack");        
@@ -38,6 +38,7 @@ var cardMatch=function(){
     }    
     var matched=document.getElementsByClassName("matched");
     if(matched.length===12){
+        document.getElementById("guesses").textContent="You had "+counter+" wrong guesses.";
         endGame();
     }
 }
@@ -49,12 +50,14 @@ var gamePlay=function(){
         var deck=document.getElementsByClassName("card");
         for(var i=0;i<deck.length;i++){
             deck[i].removeEventListener("click",gamePlay);
-            if(compare[0].classList.item(0)===compare[1].classList.item(0)){
-                console.log("match!");
-                setTimeout(cardMatch,1000);
-                setTimeout(resumePlay,1000);
-            }else{
-                setTimeout(resumePlay,1000);                
+        }
+        if(compare[0].classList.item(0)===compare[1].classList.item(0)){
+            setTimeout(cardMatch,1000);
+            setTimeout(resumePlay,1000);
+        }else{
+            counter++;
+            for(var j=0;j<compare.length;j++){
+                setTimeout(resumePlay,1000);                                
             }
         }
     }
@@ -71,6 +74,7 @@ var shuffleDeck=function(array){
     return array;
 }
 var setUp=function(){
+    counter=0;    
     var board=document.getElementById("gameboard");
     while(board.hasChildNodes()){
         board.removeChild(board.firstChild);
@@ -112,5 +116,7 @@ document.body.appendChild(pageBreak);
 var game=document.createElement('div');
 game.id="gameboard";
 document.body.appendChild(game);
+
+var counter;
 
 setUp();
