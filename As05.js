@@ -8,6 +8,9 @@ var closeModal=function(){
         mod[i].style.display="none";        
     }
 }
+var closeWindow=function(){
+    window.close();
+}
 var resumePlay=function(){
     var flipped=document.getElementsByClassName("flipped");
     for(var i=0;i<flipped.length;i++){
@@ -25,6 +28,10 @@ var cardMatch=function(){
         compare[i].classList.add("matched");    
         compare[i].classList.remove("flipped");        
     }    
+    var matched=document.getElementsByClassName("matched");
+    if(matched.length===12){
+        endGame();
+    }
 }
 var gamePlay=function(){
     event.target.classList.remove("cardBack");
@@ -34,7 +41,7 @@ var gamePlay=function(){
         var deck=document.getElementsByClassName("card");
         for(var i=0;i<deck.length;i++){
             deck[i].removeEventListener("click",gamePlay);
-            if(compare[0].classList.item(0)==compare[1].classList.item(0)){
+            if(compare[0].classList.item(0)===compare[1].classList.item(0)){
                 console.log("match!");
                 setTimeout(cardMatch,1000);
                 setTimeout(resumePlay,1000);
@@ -71,6 +78,9 @@ var setUp=function(){
 }
 var endGame=function(){
     document.getElementById("winner").style.display="block";
+    document.getElementById("exit").addEventListener("click",closeWindow);
+    document.getElementById("playAgain").addEventListener("click",setUp);
+    document.getElementById("playAgain").addEventListener("click",closeModal);    
 }
 
 var cardBank=["shark1","shark2","shark3","shark4","shark5","shark6"];
