@@ -1,12 +1,48 @@
 var showRules=function(){
     document.getElementById("rules").style.display="block";
-    document.getElementById("close").addEventListener("click",closeRules);
+    document.getElementById("close").addEventListener("click",closeModal);
 }
-var closeRules=function(){
-    document.getElementById("rules").style.display="none";
+var closeModal=function(){
+    var mod=document.getElementsByClassName("modal");
+    for(var i=0;i<mod.length;i++){
+        mod[i].style.display="none";        
+    }
+}
+var resumePlay=function(){
+    var flipped=document.getElementsByClassName("flipped");
+    for(var i=0;i<flipped.length;i++){
+        flipped[i].classList.add("cardBack");        
+        flipped[i].classList.remove("flipped");
+    }
+    var deck=document.getElementsByClassName("cardBack");
+    for(var j=0;j<deck.length;j++){
+        deck[j].addEventListener("click",gamePlay);
+    }
+}
+var cardMatch=function(){
+    var compare=document.getElementsByClassName("flipped");
+    for(var i=compare.length-1;i>=0;i--){
+        compare[i].classList.add("matched");    
+        compare[i].classList.remove("flipped");        
+    }    
 }
 var gamePlay=function(){
-    event.target.classList.toggle("cardBack");
+    event.target.classList.remove("cardBack");
+    event.target.classList.add("flipped");
+    var compare=document.getElementsByClassName("flipped");
+    if (compare.length===2){
+        var deck=document.getElementsByClassName("card");
+        for(var i=0;i<deck.length;i++){
+            deck[i].removeEventListener("click",gamePlay);
+            if(compare[0].classList.item(0)==compare[1].classList.item(0)){
+                console.log("match!");
+                setTimeout(cardMatch,1000);
+                setTimeout(resumePlay,1000);
+            }else{
+                setTimeout(resumePlay,1000);                
+            }
+        }
+    }
 }
 var shuffleDeck=function(array){
     var n=array.length;
@@ -27,7 +63,7 @@ var setUp=function(){
         shuffleDeck(cardBank);
         for(var j=0;j<cardBank.length;j++){
             var card=document.createElement('div');            
-            card.className="cardBack card "+cardBank[j];
+            card.className=cardBank[j]+" cardBack card";
             card.addEventListener("click",gamePlay);
             document.getElementById("gameboard").appendChild(card);    
         }
