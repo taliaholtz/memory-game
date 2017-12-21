@@ -1,18 +1,19 @@
+*{
+    overflow-x:hidden;
+}
 #nav{
-    display:inline-block;
+    margin:20px;
     position:relative;
     left:50%;
-    margin:20px auto;
-    margin-left:-135px;    
+    margin-left:-160px;
 }
 #nav a{
-    cursor:pointer;    
+    cursor:pointer; 
     margin:15px;
-    text-align:center;
     text-decoration:none;
     font-family:Arial;
     font-size:26px;
-    color:crimson
+    color:crimson;
 }
 #nav a:active{
     color:blue;
@@ -21,17 +22,16 @@ hr{
     margin:0;
 }
 #gameboard{
-    height:700px;
-    width:800px;
-    position:absolute;
-    left:50%;
-    margin-left:-400px;
+    height:650;
+    width:1100px;
+    position:relative;
+    margin:auto;
 }
-
 .card{
-    height:200px;
-    width:150px;
-    margin:20px;
+    height:180px;
+    width:250px;
+    margin:8px;
+    border:5px solid white;
     display:inline-block;
     background-size:cover;
     background-position:center;
@@ -56,4 +56,7 @@ hr{
 }
 .cardBack{
     background-image:url("../images/background.jpg");
+}
+.matched{
+    border:5px solid green;
 }
