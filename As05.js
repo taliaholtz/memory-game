@@ -15,14 +15,15 @@ var closeWindow=function(){
 var endGame=function(){
     document.getElementById("winner").style.display="block";
     document.getElementById("exit").addEventListener("click",closeWindow);
-    document.getElementById("playAgain").addEventListener("click",setUp);
-    document.getElementById("playAgain").addEventListener("click",closeModal);    
+    document.getElementById("playAgain").addEventListener("click",function(){setUp();closeModal();});
 }
 //Game play functions
 var resumePlay=function(){ 
-    card1.classList.add("cardBack");    
-    card2.classList.add("cardBack");
-    var deck=document.getElementsByClassName("cardBack");
+    card1.style.backgroundImage="url(./images/background.jpg)";
+    card1.classList.add("inPlay");
+    card2.style.backgroundImage="url(./images/background.jpg)";
+    card2.classList.add("inPlay");
+    var deck=document.getElementsByClassName("inPlay");
     for(var j=0;j<deck.length;j++){
         deck[j].addEventListener("click",gamePlay);
     }
@@ -31,7 +32,7 @@ var cardMatch=function(){
     card1.classList.add("matched");    
     card2.classList.add("matched");      
     var matches=document.getElementsByClassName("matched");
-    var deck=document.getElementsByClassName("cardBack");
+    var deck=document.getElementsByClassName("inPlay");
     for(var j=0;j<deck.length;j++){
         deck[j].addEventListener("click",gamePlay);
     }
@@ -42,22 +43,21 @@ var cardMatch=function(){
 }
 var gamePlay=function(){
     counter++;
-    event.target.classList.remove("cardBack");
-    event.target.removeEventListener("click",gamePlay);
+    event.target.classList.remove("inPlay");
+    event.target.removeEventListener("click",gamePlay);        
     if(counter%2!=0){
         card1=event.target
         back1=event.target.classList.item(0);
-        console.log(back1);
+        event.target.style.backgroundImage="url(./images/"+back1+".jpg)";
     }else{
         card2=event.target;
         back2=event.target.classList.item(0);
-        console.log(back2);
+        event.target.style.backgroundImage="url(./images/"+back2+".jpg)";
         var deck=document.getElementsByClassName("card");
         for(var i=0;i<deck.length;i++){
             deck[i].removeEventListener("click",gamePlay);
         }
         if(back1===back2){
-            console.log("match!");
             setTimeout(cardMatch,1000);
         }else{
             wrong++;
@@ -86,8 +86,9 @@ var setUp=function(){
     for(var i=0;i<2;i++){
         shuffleDeck(cardBank);
         for(var j=0;j<cardBank.length;j++){
-            var card=document.createElement('div');            
-            card.className=cardBank[j]+" cardBack card";
+            var card=document.createElement('div');    
+            card.className=cardBank[j]+" inPlay card";
+            card.style.backgroundImage="url(./images/background.jpg)";
             card.addEventListener("click",gamePlay);
             board.appendChild(card);    
         }
@@ -95,8 +96,7 @@ var setUp=function(){
 }
 
 //HTML
-var cardBank=["shark1","shark2","shark3","shark4","shark5","shark6"];
-
+var cardBank=["shark01","shark02","shark03","shark04","shark05","shark06"];
 var header=document.createElement('div');
 header.id="header";
 document.body.appendChild(header);
