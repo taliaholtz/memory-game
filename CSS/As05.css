@@ -11,6 +11,9 @@ body{
     position:relative;
     left:50%;
     margin-left:-160px;
+    font-family:Arial;
+    font-size:26px;
+    color:white;
 }
 #nav a{
     cursor:pointer; 
@@ -40,27 +43,6 @@ hr{
     background-size:cover;
     background-position:center;
     box-shadow:2px 2px;
-}
-.shark1{
-    background-image:url("../images/shark1.jpg");
-}
-.shark2{
-    background-image:url("../images/shark2.jpg");
-}
-.shark3{
-    background-image:url("../images/shark3.jpeg");
-}
-.shark4{
-    background-image:url("../images/shark4.jpg");
-}
-.shark5{
-    background-image:url("../images/shark5.jpg");
-}
-.shark6{
-    background-image:url("../images/shark6.jpg");
-}
-.cardBack{
-    background-image:url("../images/background.jpg");
 }
 .matched{
     border:5px solid lightgreen;
