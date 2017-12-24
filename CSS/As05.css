@@ -4,16 +4,22 @@
 body{
     background-image:url(../images/ocean.jpg); 
     background-size:cover;
-    background-position:bottom;   
+    background-position:center;   
 }
 #nav{
     margin:20px;
     position:relative;
     left:50%;
-    margin-left:-160px;
+    margin-left:-210px;
     font-family:Arial;
     font-size:26px;
     color:white;
+}
+
+#nav select{
+    background-color:white;
+    color:teal;
+    margin-left:15px;
 }
 #nav a{
     cursor:pointer; 
@@ -31,18 +37,29 @@ hr{
 }
 #gameboard{
     height:660;
-    width:1100px;
     position:relative;
     margin:auto;
 }
 .card{
-    height:180px;
-    width:250px;
-    margin:8px;
     display:inline-block;
     background-size:cover;
     background-position:center;
     box-shadow:2px 2px;
+}
+.card1{
+    height:180px;
+    width:250px;
+    margin:6px;
+}
+.card2{
+    height:180px;
+    width:200px;
+    margin:5px;
+}
+.card3{
+    height:135px;
+    width:175px;
+    margin:5px;
 }
 .matched{
     border:5px solid lightgreen;
