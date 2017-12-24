@@ -50,13 +50,14 @@ function endGame(){
         window.close();
     });
     document.getElementById("playAgain").addEventListener("click",function(){
-        setUp(document.getElementById("gameLevel").value);
+        newGame(document.getElementById("gameLevel").value);
         closeModal();
     });
 }
 
-//New game
-function setUp(){
+//Game
+function newGame(){
+    //set-up
     function shuffleDeck(array){
         var n=array.length;
         while(n){
@@ -113,12 +114,15 @@ function setUp(){
             board.appendChild(card);    
         }
     }
-    //Game play functions
-    function resumePlay(){ 
+    //game play
+    function flip(){ 
         card1.style.backgroundImage="url(./images/background.jpg)";
         card1.classList.add("inPlay");
         card2.style.backgroundImage="url(./images/background.jpg)";
         card2.classList.add("inPlay");
+        resumePlay();
+    }
+    function resumePlay(){
         var deck=document.getElementsByClassName("inPlay");
         for(var j=0;j<deck.length;j++){
             deck[j].addEventListener("click",gamePlay);
@@ -128,10 +132,7 @@ function setUp(){
         card1.classList.add("matched");    
         card2.classList.add("matched");      
         var matches=document.getElementsByClassName("matched");
-        var deck=document.getElementsByClassName("inPlay");
-        for(var j=0;j<deck.length;j++){
-            deck[j].addEventListener("click",gamePlay);
-        }
+        resumePlay();
         if(matches.length===winCondition){
             document.getElementById("guesses").textContent="You had "+wrong+" wrong guesses.";
             endGame();
@@ -157,15 +158,15 @@ function setUp(){
                 setTimeout(cardMatch,1000);
             }else{
                 wrong++;
-                setTimeout(resumePlay,1000);                                
+                setTimeout(flip,1000);                                
             }
         }
     }
 }
 
 //HTML event listeners
-document.getElementById("New Game").addEventListener("click",setUp);
+document.getElementById("New Game").addEventListener("click",newGame);
 document.getElementById("Rules").addEventListener("click",showRules);
-document.getElementById("gameLevel").addEventListener("change",setUp);
+document.getElementById("gameLevel").addEventListener("change",newGame);
 
-setUp();
+newGame();
