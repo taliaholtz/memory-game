@@ -9,8 +9,7 @@ body{
 #nav{
     margin:20px;
     position:relative;
-    left:50%;
-    margin-left:-210px;
+    left:33%;
     font-family:Arial;
     font-size:26px;
     color:white;
@@ -67,27 +66,29 @@ hr{
    
 @media only screen and (max-width: 800px){
     #nav{
-        left:50%;
-        margin-left:-130px;
+        left:25%;
     }
     #gameboard{
-        height:725px;
-        width:725px;        
+        height:775px;                
+        width:600px;
     }
-    .card{
+    .card1{
         height:160px;
-        width:225px;
+        width:200px;
     }
 }
 @media only screen and (max-width: 450px){
-    #nav a{
+    #nav{
+        left:5%;
+    }
+    #nav a,#nav select,#nav option{
         font-size:22px;
     }
     #gameboard{
         height:1275;                
         width:550px;
     }
-    .card{
+    .card1{
         height:140px;
         width:200px;
     }

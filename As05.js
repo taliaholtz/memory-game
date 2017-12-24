@@ -34,22 +34,21 @@ game.id="gameboard";
 document.body.appendChild(game);
 
 //Modal functions
-var showRules=function(){
+function showRules(){
     document.getElementById("rules").style.display="block";
     document.getElementById("close").addEventListener("click",closeModal);
 }
-var closeModal=function(){
+function closeModal(){
     var mod=document.getElementsByClassName("modal");
     for(var i=0;i<mod.length;i++){
         mod[i].style.display="none";        
     }
 }
-var closeWindow=function(){
-    window.close();
-}
-var endGame=function(){
+function endGame(){
     document.getElementById("winner").style.display="block";
-    document.getElementById("exit").addEventListener("click",closeWindow);
+    document.getElementById("exit").addEventListener("click",function(){
+        window.close();
+    });
     document.getElementById("playAgain").addEventListener("click",function(){
         setUp(document.getElementById("gameLevel").value);
         closeModal();
@@ -69,7 +68,6 @@ function setUp(){
         return array;
     }
     var difficulty=document.getElementById('gameLevel').value;
-    var pack=document.getElementsByClassName("card");
     var cardBank=easyPack;
     var wrong=0;
     var counter=0; 
@@ -91,8 +89,8 @@ function setUp(){
         cardSize="card2";
         document.getElementById("gameboard").style.width="1300px";
         var medPack=["shark07","shark08","shark09"];
-        for(var i=0;i<easyPack.length;i++){
-            medPack.push(easyPack[i]);
+        for(var i=0;i<cardBank.length;i++){
+            medPack.push(cardBank[i]);
         }
         cardBank=medPack;
     }else if(difficulty==="Hard"){
@@ -100,8 +98,8 @@ function setUp(){
         cardSize="card3";
         document.getElementById("gameboard").style.width="1150px";
         var hardPack=["shark07","shark08","shark09","shark10","shark11","shark12"];
-        for(var i=0;i<easyPack.length;i++){
-            hardPack.push(easyPack[i]);
+        for(var i=0;i<cardBank.length;i++){
+            hardPack.push(cardBank[i]);
         }
         cardBank=hardPack;
     }
