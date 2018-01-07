@@ -54,6 +54,7 @@ function newGame() {
         }
         return array;
     }
+    //variables
     var difficulty = document.getElementById('gameLevel').value;
     var cardBank = easyPack;
     var wrong = 0;
@@ -62,7 +63,8 @@ function newGame() {
     var cardSize;
     var card1;
     var card2;
-
+    
+    //clear existing board
     var board = document.getElementById("gameboard");
     while (board.hasChildNodes()) {
         board.removeChild(board.firstChild);
@@ -92,6 +94,7 @@ function newGame() {
         cardBank = hardPack;
     }
     for (var i = 0; i < 2; i++) {
+        //randomize card distribution
         shuffleDeck(cardBank);
         for (var j = 0; j < cardBank.length; j++) {
             var card = document.createElement('div');
@@ -159,8 +162,8 @@ function newGame() {
     }
 }
 
-//HTML -- nav bar
-var initializeNav = function () {
+//HTML
+var initializeGame = function () {
     var header = document.createElement('div');
     header.id = "header";
     document.body.appendChild(header);
@@ -207,7 +210,7 @@ var s=0;
 var easyPack = ["shark01", "shark02", "shark03", "shark04", "shark05", "shark06"];
 
 //initialize webpage
-initializeNav();
+initializeGame();
 initializeTimer();
 
 //HTML event listeners
